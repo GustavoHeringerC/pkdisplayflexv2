@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flexbox pokeball</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+
+            height: 100vh;
+            background-image: linear-gradient(45deg, rgb(110, 198, 233), rgb(14, 62, 116));
+
+            
+        }
+        #container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+
+            
+        }
+
+        .red {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            height: 150px;
+            width: 150px;
+            border-radius: 150px;
+            background-image: linear-gradient(red 50%,white 50%);
+
+            border: 3px solid black;
+
+        }
+
+        .line {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            height: 5px;
+            width: 150px;
+
+            background-color: black;
+        }
+
+
+        .blackcircle {
+            
+           height: 35px;
+           width: 35px;
+           border-radius: 150px;
+           background-color: rgb(255, 255, 255);
+
+           border: 5px solid black;
+        }
+
+        #container:hover {
+            animation: rodar .5s alternate infinite;
+            transform: scale(2);
+
+        }
+
+        @keyframes rodar {
+            from{
+                transform: rotate(15deg) scale(1);
+            }
+            to {
+                transform: rotate(-15deg) scale(1.2);
+            }
+        }
+
+        
+
+    </style>
+</head>
+<body>
+    
+    <script>
+        function pokebola(cor, borda) {
+            
+            return`
+            <div id="container">
+            <div class="red" 
+            style="background-image: linear-gradient(${cor} 50%,white 50%); border: 3px solid ${borda}; margin:30px;">
+
+
+            <div class="line">
+                <div class="blackcircle"></div>
+            </div>
+            </div>
+            </div>
+            `
+        }
+
+        var criarpokebola=document.getElementsByTagName(`body`)[0];
+
+        criarpokebola.innerHTML=
+        pokebola()+
+        pokebola()+
+        pokebola()
+
+    </script>
+</body>
+</html>
